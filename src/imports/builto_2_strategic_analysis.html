@@ -1,0 +1,557 @@
+<style>
+.tab-nav{display:flex;gap:6px;margin-bottom:1.5rem;padding-bottom:12px;border-bottom:0.5px solid var(--color-border-tertiary);flex-wrap:wrap}
+.tab-btn{padding:6px 14px;border:0.5px solid var(--color-border-secondary);background:transparent;border-radius:var(--border-radius-md);font-size:13px;color:var(--color-text-secondary);cursor:pointer;font-family:var(--font-sans)}
+.tab-btn.active{background:var(--color-text-primary);color:var(--color-background-primary);border-color:var(--color-text-primary)}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:12px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.slim{font-size:11px;font-weight:500;letter-spacing:.07em;color:var(--color-text-secondary);margin-bottom:6px;text-transform:uppercase}
+.chip{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px}
+.stage-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.stage-row:last-child{border-bottom:none}
+.snum{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
+.bmc-grid{display:grid;gap:10px}
+.bmc-cell{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:12px}
+.bmc-head{font-size:10px;font-weight:500;letter-spacing:.07em;color:var(--color-text-tertiary);text-transform:uppercase;margin-bottom:6px}
+.bmc-body{font-size:13px;color:var(--color-text-primary);line-height:1.6}
+.fix-row{display:flex;gap:10px;padding:9px 0;border-bottom:0.5px solid var(--color-border-tertiary);align-items:flex-start}
+.fix-row:last-child{border-bottom:none}
+.arrow{font-size:13px;color:var(--color-text-tertiary);padding-top:1px}
+</style>
+
+<div style="padding:0.5rem 0">
+<div style="margin-bottom:1.25rem">
+  <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 3px;font-weight:500">Strategic analysis + updated model</p>
+  <h1 style="font-size:22px;font-weight:500;margin:0 0 3px">Builto 2.0</h1>
+  <p style="font-size:14px;color:var(--color-text-secondary);margin:0">The startup operating system — revised, competitive-mapped, and fully modeled</p>
+</div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" data-target="overview">Overview</button>
+  <button class="tab-btn" data-target="competitors">Competitors</button>
+  <button class="tab-btn" data-target="swot">SWOT + fixes</button>
+  <button class="tab-btn" data-target="how">How it works</button>
+  <button class="tab-btn" data-target="bmc">Business model canvas</button>
+</div>
+
+<!-- OVERVIEW -->
+<div data-section="overview">
+  <h2 style="font-size:18px;font-weight:500;margin:0 0 4px">Problem — six ways startups structurally fail</h2>
+  <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 1.25rem;line-height:1.6">Builto's original framing identified three failure modes. Analysis reveals three more that are equally fatal.</p>
+
+  <div class="g3" style="margin-bottom:1.5rem">
+    <div class="card">
+      <div class="slim">Original failure 1</div>
+      <p style="font-size:14px;font-weight:500;margin:0 0 4px">Context gap</p>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55">AI tools build code without knowing whether the market, pricing, or infra is viable. Every domain operates in a silo.</p>
+    </div>
+    <div class="card">
+      <div class="slim">Original failure 2</div>
+      <p style="font-size:14px;font-weight:500;margin:0 0 4px">Prototype trap</p>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55">Founders build fast but build the wrong thing — financially unviable, technically unscalable, or solving a non-problem.</p>
+    </div>
+    <div class="card">
+      <div class="slim">Original failure 3</div>
+      <p style="font-size:14px;font-weight:500;margin:0 0 4px">Distribution void</p>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55">Products get built and launched into silence. No launch strategy, no user acquisition path, no demand validation loop.</p>
+    </div>
+    <div class="card" style="border-left:2px solid #378ADD">
+      <div class="slim" style="color:#185FA5">New failure 4</div>
+      <p style="font-size:14px;font-weight:500;margin:0 0 4px">Legal blindspot</p>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55">Founders building in fintech, health, or consumer data unknowingly violate GDPR, PCI-DSS, or FDA requirements. Discovered post-build.</p>
+    </div>
+    <div class="card" style="border-left:2px solid #378ADD">
+      <div class="slim" style="color:#185FA5">New failure 5</div>
+      <p style="font-size:14px;font-weight:500;margin:0 0 4px">Funding misalignment</p>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55">Founders pitch to investors whose thesis, stage, and sector don't match. Wasted months. No feedback on why they were wrong.</p>
+    </div>
+    <div class="card" style="border-left:2px solid #378ADD">
+      <div class="slim" style="color:#185FA5">New failure 6</div>
+      <p style="font-size:14px;font-weight:500;margin:0 0 4px">Team composition error</p>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.55">The wrong founding team for the product type. A solo coder building a sales-heavy B2B SaaS. Identified only after multiple pivots.</p>
+    </div>
+  </div>
+
+  <h2 style="font-size:18px;font-weight:500;margin:0 0 4px">Solution — an 11-stage bi-directional startup OS</h2>
+  <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 1.25rem;line-height:1.6">Builto 2.0 adds three intelligence layers to the original 8 stages, closing every known failure mode. Every stage is connected — constraints propagate backward, signals propagate forward.</p>
+
+  <div class="g2" style="margin-bottom:1.5rem">
+    <div class="card">
+      <div class="slim">Core insight</div>
+      <p style="font-size:14px;font-weight:500;margin:0 0 6px">Why Builto wins</p>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0;line-height:1.6">Every competitor operates in a single domain. Builto is the only system where a financial constraint discovered in Stage 3 automatically reshapes the architecture in Stage 5, the distribution budget in Stage 6, and the investor target in the new Stage 4. This bi-directional propagation is not a feature — it is the product.</p>
+    </div>
+    <div class="card">
+      <div class="slim">Three new additions</div>
+      <p style="font-size:14px;font-weight:500;margin:0 0 8px">What Builto 2.0 adds</p>
+      <div class="fix-row" style="padding-top:0">
+        <span style="font-size:14px">🎯</span>
+        <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Investor match engine</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">After financials are modeled, auto-score and rank relevant investors by thesis / stage / sector match. Generates a tiered cold outreach list.</p></div>
+      </div>
+      <div class="fix-row">
+        <span style="font-size:14px">⚖️</span>
+        <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Legal & compliance radar</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Detects applicable regulatory frameworks (GDPR, HIPAA, PCI-DSS, fintech licensing) from the business model before any code is written.</p></div>
+      </div>
+      <div class="fix-row">
+        <span style="font-size:14px">👥</span>
+        <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Team gap analyzer</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Cross-references the tech stack, GTM motion, and business model to identify exact co-founder archetypes or critical first hires needed.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="background:var(--color-background-secondary)">
+    <div class="slim">Why it will succeed</div>
+    <div class="g3">
+      <div>
+        <p style="font-size:13px;font-weight:500;margin:0 0 4px">First-mover in a real category</p>
+        <p style="font-size:12px;color:var(--color-text-secondary);margin:0;line-height:1.55">No one has built a full-stack startup OS with bi-directional intelligence. The market exists — 50M+ people attempt to start businesses annually. The tool doesn't.</p>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:500;margin:0 0 4px">Compounding moat via memory</p>
+        <p style="font-size:12px;color:var(--color-text-secondary);margin:0;line-height:1.55">Founder memory creates a switching cost no copilot can replicate. The longer you use Builto, the more it knows — and the less useful anything else is.</p>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:500;margin:0 0 4px">Distribution is the differentiator</p>
+        <p style="font-size:12px;color:var(--color-text-secondary);margin:0;line-height:1.55">Every competitor stops at build. Builto's distribution engine attacks the most common failure cause — not inability to build, but inability to reach users.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPETITORS -->
+<div data-section="competitors" style="display:none">
+  <h2 style="font-size:18px;font-weight:500;margin:0 0 4px">Competitive landscape</h2>
+  <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 1.25rem;line-height:1.6">Every competitor owns one or two stages. None connect all eleven. That gap is Builto's entire market.</p>
+
+  <div class="g2" style="margin-bottom:1.5rem">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+        <p style="font-size:14px;font-weight:500;margin:0">Bolt.new / Lovable.dev</p>
+        <span class="chip" style="background:#E6F1FB;color:#185FA5">Code builders</span>
+      </div>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 8px;line-height:1.55">Prompt-to-fullstack app generation. Fast, well-funded, excellent developer experience. Bolt raised $80M+ at significant valuation.</p>
+      <p style="font-size:12px;font-weight:500;margin:0 0 3px;color:var(--color-text-primary)">Missing:</p>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin:0">No market validation, zero financial modeling, no distribution engine, no legal awareness, no investor match. Builds without knowing if it should.</p>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+        <p style="font-size:14px;font-weight:500;margin:0">ValidatorAI</p>
+        <span class="chip" style="background:#E1F5EE;color:#085041">Validation only</span>
+      </div>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 8px;line-height:1.55">AI-powered startup idea scoring and market analysis. Gives a "startup score" and basic feedback on market fit.</p>
+      <p style="font-size:12px;font-weight:500;margin:0 0 3px;color:var(--color-text-primary)">Missing:</p>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin:0">Stops after analysis. No building, no financials, no strategy, no distribution. Output is a report, not an execution system.</p>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+        <p style="font-size:14px;font-weight:500;margin:0">DimeADozen.ai</p>
+        <span class="chip" style="background:#E1F5EE;color:#085041">Validation only</span>
+      </div>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 8px;line-height:1.55">Fast AI business validation reports. Popular with early-stage founders wanting a quick viability read.</p>
+      <p style="font-size:12px;font-weight:500;margin:0 0 3px;color:var(--color-text-primary)">Missing:</p>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin:0">Synthetic LLM reasoning, no real-world signals. No building path, no execution tracking, no distribution. A PDF, not a system.</p>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+        <p style="font-size:14px;font-weight:500;margin:0">Upmetrics</p>
+        <span class="chip" style="background:#FAEEDA;color:#633806">Business planning</span>
+      </div>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 8px;line-height:1.55">AI business plan + financial forecast generator. Produces investor-ready documents with projections and unit economics.</p>
+      <p style="font-size:12px;font-weight:500;margin:0 0 3px;color:var(--color-text-primary)">Missing:</p>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin:0">Plan ≠ product. No code generation, no real-world validation loop, no distribution, no investor matching beyond the document.</p>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+        <p style="font-size:14px;font-weight:500;margin:0">GitHub Copilot / Cursor</p>
+        <span class="chip" style="background:#E6F1FB;color:#185FA5">Dev copilots</span>
+      </div>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 8px;line-height:1.55">In-editor AI coding assistance. Accelerates development within existing codebases. Cursor adds agentic file editing.</p>
+      <p style="font-size:12px;font-weight:500;margin:0 0 3px;color:var(--color-text-primary)">Missing:</p>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin:0">Entirely developer-facing. No market, strategy, financials, distribution, legal, or investor layers. Requires an existing product vision.</p>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+        <p style="font-size:14px;font-weight:500;margin:0">Mixo</p>
+        <span class="chip" style="background:#E1F5EE;color:#085041">Landing pages</span>
+      </div>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 8px;line-height:1.55">Generates a landing page + waitlist in under 5 minutes. Good for fake-door demand tests. Popular with non-technical founders.</p>
+      <p style="font-size:12px;font-weight:500;margin:0 0 3px;color:var(--color-text-primary)">Missing:</p>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin:0">Only one tool in Builto's validation stage. No signal interpretation, no product building, no financial or legal layers.</p>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+        <p style="font-size:14px;font-weight:500;margin:0">Gamma / Tome</p>
+        <span class="chip" style="background:#FAEEDA;color:#633806">Pitch decks</span>
+      </div>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 8px;line-height:1.55">AI-powered presentation and pitch deck generation. Strong on narrative, visual design, and investor-facing storytelling.</p>
+      <p style="font-size:12px;font-weight:500;margin:0 0 3px;color:var(--color-text-primary)">Missing:</p>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin:0">Presentation layer only. Beautiful decks, no underlying validated business. No building, no distribution, no investor targeting.</p>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+        <p style="font-size:14px;font-weight:500;margin:0">Notion AI</p>
+        <span class="chip" style="background:#F1EFE8;color:#444441">Workspace</span>
+      </div>
+      <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 8px;line-height:1.55">AI-enhanced knowledge management workspace. Used by 94% of Forbes AI 50 companies for docs, tasks, and internal wikis.</p>
+      <p style="font-size:12px;font-weight:500;margin:0 0 3px;color:var(--color-text-primary)">Missing:</p>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin:0">A container for decisions, not a maker of them. No market intelligence, no code generation, no validation loops, no distribution engine.</p>
+    </div>
+  </div>
+
+  <div class="card" style="background:var(--color-background-secondary)">
+    <div class="slim">The gap</div>
+    <p style="font-size:13px;margin:0;line-height:1.6;color:var(--color-text-primary)">Zero competitors connect all 11 stages. The closest multi-stage competitors (Upmetrics + Bolt.new used together) still require the founder to manually translate strategy into architecture, architecture into code, and code into distribution. Builto eliminates those translation gaps entirely — and adds the legal, investor, and team layers no tool currently provides.</p>
+  </div>
+</div>
+
+<!-- SWOT + FIXES -->
+<div data-section="swot" style="display:none">
+  <h2 style="font-size:18px;font-weight:500;margin:0 0 4px">SWOT analysis</h2>
+  <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 1.25rem;line-height:1.6">Assessed against the current competitive landscape and real-world execution risk. Weaknesses and threats each have a concrete fix.</p>
+
+  <div class="g2" style="margin-bottom:1.5rem">
+    <div style="border:0.5px solid #1D9E75;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;background:#E1F5EE">
+      <p style="font-size:14px;font-weight:500;margin:0 0 10px;color:#085041">Strengths</p>
+      <ul style="margin:0;padding-left:16px;font-size:13px;color:#0F6E56;line-height:1.7">
+        <li>Only end-to-end startup OS — no competitor operates across all stages</li>
+        <li>Bi-directional constraint propagation — real system intelligence, not a pipeline</li>
+        <li>Real-world validation loop (fake-door, micro-ads) vs synthetic LLM reasoning</li>
+        <li>Financial intelligence prevents unviable builds before they happen</li>
+        <li>Distribution engine attacks the most ignored failure cause</li>
+        <li>Founder memory creates compounding switching cost over time</li>
+        <li>Multi-model routing eliminates single-model bottleneck</li>
+      </ul>
+    </div>
+    <div style="border:0.5px solid #854F0B;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;background:#FAEEDA">
+      <p style="font-size:14px;font-weight:500;margin:0 0 10px;color:#633806">Weaknesses</p>
+      <ul style="margin:0;padding-left:16px;font-size:13px;color:#854F0B;line-height:1.7">
+        <li>Engineering complexity risk — 11-stage agentic system is hard to build reliably</li>
+        <li>No pricing model defined in the original spec</li>
+        <li>Founder memory raises real privacy and data security concerns</li>
+        <li>11 features risks feature bloat and poor onboarding clarity</li>
+        <li>Cold start problem — no social proof or user base at launch</li>
+        <li>Real-world validation (ads, fake-door pages) adds per-user cost complexity</li>
+      </ul>
+    </div>
+    <div style="border:0.5px solid #185FA5;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;background:#E6F1FB">
+      <p style="font-size:14px;font-weight:500;margin:0 0 10px;color:#0C447C">Opportunities</p>
+      <ul style="margin:0;padding-left:16px;font-size:13px;color:#185FA5;line-height:1.7">
+        <li>B2B licensing to accelerators and incubators (YC, Antler, Entrepreneur First)</li>
+        <li>Vertical specialization: SaaS, e-commerce, deep tech, climate each have distinct needs</li>
+        <li>White-label for VC firms as a portfolio company support tool</li>
+        <li>Integration with AngelList, Stripe Atlas, Carta for funding workflow</li>
+        <li>Government startup programs (SBIR, Innovate UK) as institutional clients</li>
+        <li>Building the investor database moat before competitors notice the gap</li>
+      </ul>
+    </div>
+    <div style="border:0.5px solid #993C1D;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;background:#FAECE7">
+      <p style="font-size:14px;font-weight:500;margin:0 0 10px;color:#4A1B0C">Threats</p>
+      <ul style="margin:0;padding-left:16px;font-size:13px;color:#993C1D;line-height:1.7">
+        <li>OpenAI / Anthropic / Google could build this with far more resources</li>
+        <li>Bolt.new and Lovable.dev are well-funded and expanding scope</li>
+        <li>Founders may not trust AI for high-stakes strategic decisions</li>
+        <li>Market fragmentation preference — founders often prefer best-of-breed tools</li>
+        <li>LLM inference costs could make per-stage unit economics difficult at scale</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 style="font-size:18px;font-weight:500;margin:0 0 8px">Fixes — weaknesses</h2>
+  <div class="card" style="margin-bottom:1.25rem">
+    <div class="fix-row" style="padding-top:0">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Engineering complexity</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Phase the build: MVP is Stages 1–3 only (validate, strategize, quantify). Stages 4–11 are unlocked progressively. Reduces scope risk and lets you learn before committing to the full system.</p></div>
+    </div>
+    <div class="fix-row">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">No pricing model</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Free tier (Stages 1–2, limited runs), Pro $49/mo (all 11 stages, 5 projects), Studio $199/mo (unlimited projects + API + white-label). Accelerator licensing at custom enterprise pricing.</p></div>
+    </div>
+    <div class="fix-row">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Founder memory privacy risk</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Implement local-first encrypted memory (AES-256, founder-controlled keys). Memory never leaves unless explicitly shared. GDPR-compliant data deletion on request. This becomes a trust differentiator.</p></div>
+    </div>
+    <div class="fix-row">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Feature bloat risk</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Every stage is modular and skippable. Onboarding starts with a 2-question intent classifier: "are you pre-idea, pre-build, or pre-launch?" Each path surfaces only relevant stages. Complexity is hidden unless requested.</p></div>
+    </div>
+    <div class="fix-row">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Cold start / no social proof</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Launch strategy: partner with 3 accelerators for cohort access (free Pro access for batch companies). Each cohort = 30–100 founders. First users are incentivized and vocal. Compound with a founder-facing content loop on X and LinkedIn.</p></div>
+    </div>
+    <div class="fix-row">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Validation cost per user</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Real-world validation (micro-ads, landing pages) is optional and user-funded — Builto orchestrates the execution but costs pass through to the founder. Builto charges a small platform fee (10%) on validation spend. Aligns incentives.</p></div>
+    </div>
+  </div>
+
+  <h2 style="font-size:18px;font-weight:500;margin:0 0 8px">Fixes — threats</h2>
+  <div class="card">
+    <div class="fix-row" style="padding-top:0">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Big tech replication</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Big tech builds infrastructure (models, APIs). Builto builds workflow ownership and founder memory — deeply personalized and sticky. Founder memory and investor database are the moat, not the LLM calls. Also: build on top of their models, not against them.</p></div>
+    </div>
+    <div class="fix-row">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Bolt / Lovable expansion</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Position Builto as the orchestration hub that integrates with them, not competes. "Use Bolt inside Builto." When code generation tools are commoditized, strategic orchestration above them becomes more valuable — not less.</p></div>
+    </div>
+    <div class="fix-row">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Trust gap on strategic AI</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Human-in-the-loop at every stage transition is non-negotiable. Builto never auto-advances. Every recommendation is surfaced as a choice, not a decision. "AI generates. Human approves." Frame this explicitly in all marketing.</p></div>
+    </div>
+    <div class="fix-row">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Market fragmentation preference</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Target non-technical founders first — they have no alternative stack and no tool-switching cost. Once the category exists, technical founders adopt for the cross-layer intelligence they can't replicate manually with point solutions.</p></div>
+    </div>
+    <div class="fix-row">
+      <div style="min-width:18px;padding-top:1px;font-size:13px;color:var(--color-text-tertiary)">→</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">LLM inference cost economics</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Multi-model routing already addresses this. Use lightweight models for orchestration, reasoning models only for architecture/code decisions. Cache stage outputs aggressively. Benchmark cost per project run and build it into pricing with 3× margin.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div data-section="how" style="display:none">
+  <h2 style="font-size:18px;font-weight:500;margin:0 0 4px">How Builto 2.0 works — 11 stages</h2>
+  <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 1.25rem;line-height:1.6">A raw idea enters at Stage 1. An investor-ready, legally checked, financially modeled, distributed startup exits at Stage 11. Four loops connect them: the Pivot Loop, Reality Loop, Funding Loop, and Team Loop.</p>
+  <div class="card" style="margin-bottom:1.25rem">
+    <div class="stage-row" style="padding-top:0">
+      <div class="snum" style="background:#E1F5EE;color:#085041">1</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Validate — real-world hybrid</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">OSINT via live web search (Tavily + DuckDuckGo), competitor mapping, market gap detection. Then: auto-generated landing pages, fake-door tests, micro-ad experiments, waitlist capture. Demand is empirically measured, not assumed.</p></div>
+    </div>
+    <div class="stage-row">
+      <div class="snum" style="background:#E1F5EE;color:#085041">2</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Strategize & plan</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Business Strategist agent defines ICP, pricing strategy, and GTM plan. Planner agent breaks idea into dynamic, trackable execution roadmap. Both are informed by Stage 1 signals — not templated.</p></div>
+    </div>
+    <div class="stage-row">
+      <div class="snum" style="background:#E1F5EE;color:#085041">3</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Quantify — financial reality engine</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Revenue model simulation, cloud + API inference cost estimation, unit economics. Adaptive Scope Controller: if costs > revenue or complexity is too high, system proposes feature reduction, infra alternatives, or pricing pivots before any code is written.</p></div>
+    </div>
+    <div class="stage-row">
+      <div class="snum" style="background:#E6F1FB;color:#0C447C">4</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
+          <p style="font-size:13px;font-weight:500;margin:0">Investor match engine</p>
+          <span class="chip" style="background:#E6F1FB;color:#185FA5;font-size:10px">New</span>
+        </div>
+        <p style="font-size:12px;color:var(--color-text-secondary);margin:0">Cross-references Stage 2 (market, ICP, GTM) and Stage 3 (financials, stage, business model) against a curated investor database. Outputs a tiered list of investor targets with match reasoning, thesis alignment score, and a templated cold outreach sequence.</p>
+      </div>
+    </div>
+    <div class="stage-row">
+      <div class="snum" style="background:#E1F5EE;color:#085041">5</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Architect & scaffold</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Tech Architect maps business needs to system design. Selects pre-audited, secure boilerplates (NextAuth + Prisma stacks, scalable backend patterns, modular frontend systems). Architecture is constrained by Stage 3 financials — eliminates hallucinated infra.</p></div>
+    </div>
+    <div class="stage-row">
+      <div class="snum" style="background:#E6F1FB;color:#0C447C">6</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
+          <p style="font-size:13px;font-weight:500;margin:0">Legal & compliance radar</p>
+          <span class="chip" style="background:#E6F1FB;color:#185FA5;font-size:10px">New</span>
+        </div>
+        <p style="font-size:12px;color:var(--color-text-secondary);margin:0">Analyzes the business model, target market, data handling, and geography to detect applicable regulatory frameworks before code is written. Flags GDPR, HIPAA, PCI-DSS, FDA, CCPA, fintech licensing. Generates a compliance checklist embedded into Stage 7.</p>
+      </div>
+    </div>
+    <div class="stage-row">
+      <div class="snum" style="background:#E1F5EE;color:#085041">7</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Build — context-aware development</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Developer agent builds custom logic + UI using all prior validated context. Stage 6 compliance checklist is woven into the build. Live browser preview with iterative feedback. Not code generation — aligned product generation.</p></div>
+    </div>
+    <div class="stage-row">
+      <div class="snum" style="background:#E1F5EE;color:#085041">8</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Distribution engine</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">AI generates launch strategy, viral content (LinkedIn/X threads), community distribution plan. Identifies relevant forums, Reddit threads, Discord communities, early adopters. Suggests growth loops and referral systems. Directly attacks the distribution void — the most ignored failure cause in startups.</p></div>
+    </div>
+    <div class="stage-row">
+      <div class="snum" style="background:#E6F1FB;color:#0C447C">9</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
+          <p style="font-size:13px;font-weight:500;margin:0">Team gap analyzer</p>
+          <span class="chip" style="background:#E6F1FB;color:#185FA5;font-size:10px">New</span>
+        </div>
+        <p style="font-size:12px;color:var(--color-text-secondary);margin:0">Cross-references the full startup profile (tech stack, GTM motion, sales complexity, regulatory requirements) to surface missing skills. Outputs a ranked list of co-founder archetypes or first-hire profiles with JD templates and sourcing strategies.</p>
+      </div>
+    </div>
+    <div class="stage-row">
+      <div class="snum" style="background:#E1F5EE;color:#085041">10</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Execution & tracking OS</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Converts plans into daily execution tasks. Tracks progress, burn rate, milestones. Alerts on delays, misalignment, and inefficiencies. Turns the founder's roadmap into an active system, not a static document.</p></div>
+    </div>
+    <div class="stage-row">
+      <div class="snum" style="background:#E1F5EE;color:#085041">11</div>
+      <div><p style="font-size:13px;font-weight:500;margin:0 0 2px">Founder memory & learning</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Stores all decisions, pivots, and preferences in encrypted founder-controlled memory. Learns behavior patterns and product direction over time. After 90 days of use, Builto becomes genuinely personalized — knowing your preferences before you articulate them. This is the compounding moat.</p></div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card" style="background:var(--color-background-secondary)">
+      <div class="slim">The four intelligence loops</div>
+      <div style="margin-top:4px">
+        <p style="font-size:13px;margin:0 0 6px"><span style="font-weight:500">Pivot Loop</span> — Resolves internal conflicts between tech, business, and cost. A financially unviable architecture triggers a re-run of Stage 3 before any code is written.</p>
+        <p style="font-size:13px;margin:0 0 6px"><span style="font-weight:500">Reality Loop</span> — Validates assumptions using real-world signals from Stage 1 before committing to Stage 5 build decisions.</p>
+        <p style="font-size:13px;margin:0 0 6px"><span style="font-weight:500">Funding Loop</span> — New in 2.0. Keeps investor match updated as the startup evolves through stages, generating fresh outreach sequences at Stage 10 milestones.</p>
+        <p style="font-size:13px;margin:0"><span style="font-weight:500">Team Loop</span> — New in 2.0. As the product scope changes through pivots, Team Gap Analyzer re-runs automatically to surface new hiring needs.</p>
+      </div>
+    </div>
+    <div class="card" style="background:var(--color-background-secondary)">
+      <div class="slim">Model routing strategy</div>
+      <div class="fix-row" style="padding-top:0">
+        <div style="min-width:18px;font-size:11px;color:var(--color-text-tertiary);padding-top:2px">01</div>
+        <div><p style="font-size:13px;font-weight:500;margin:0 0 1px">Lightweight models</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Orchestration, task management, UI generation, simple classification</p></div>
+      </div>
+      <div class="fix-row">
+        <div style="min-width:18px;font-size:11px;color:var(--color-text-tertiary);padding-top:2px">02</div>
+        <div><p style="font-size:13px;font-weight:500;margin:0 0 1px">Search-augmented models</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">OSINT, competitor mapping, investor matching, real-world validation</p></div>
+      </div>
+      <div class="fix-row">
+        <div style="min-width:18px;font-size:11px;color:var(--color-text-tertiary);padding-top:2px">03</div>
+        <div><p style="font-size:13px;font-weight:500;margin:0 0 1px">Reasoning models</p><p style="font-size:12px;color:var(--color-text-secondary);margin:0">Architecture design, financial modeling, legal analysis, full-stack code generation</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BMC -->
+<div data-section="bmc" style="display:none">
+  <h2 style="font-size:18px;font-weight:500;margin:0 0 4px">Business model canvas</h2>
+  <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 1.25rem;line-height:1.6">Updated to reflect Builto 2.0 — including new revenue streams, accelerator B2B channel, and investor database as a key resource.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px">
+    <div class="bmc-cell" style="grid-row:span 2">
+      <div class="bmc-head">Key partnerships</div>
+      <div class="bmc-body">
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px">Model providers</p>
+        <p style="margin:0 0 8px;font-size:12px;color:var(--color-text-secondary)">Anthropic, OpenAI, Google (foundation models). Build on top of — not against — the major labs.</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px">Validation infra</p>
+        <p style="margin:0 0 8px;font-size:12px;color:var(--color-text-secondary)">Meta Ads, Google Ads (micro-ad experiments). Webflow / Vercel (fake-door landing pages). Tavily, DuckDuckGo (OSINT).</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px">Funding & legal data</p>
+        <p style="margin:0 0 8px;font-size:12px;color:var(--color-text-secondary)">AngelList, Crunchbase, Carta (investor data). Legal compliance API providers (Clausematch, NAVEX).</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px">Distribution</p>
+        <p style="margin:0;font-size:12px;color:var(--color-text-secondary)">Accelerators (YC, Antler, Entrepreneur First) for early cohort distribution. Product Hunt, Hacker News for launch amplification.</p>
+      </div>
+    </div>
+    <div class="bmc-cell">
+      <div class="bmc-head">Key activities</div>
+      <div class="bmc-body">
+        <p style="margin:0 0 4px;font-size:12px">— Multi-agent orchestration development and maintenance</p>
+        <p style="margin:0 0 4px;font-size:12px">— Real-world validation infra (landing pages, ad experiments)</p>
+        <p style="margin:0 0 4px;font-size:12px">— Investor database curation and maintenance</p>
+        <p style="margin:0 0 4px;font-size:12px">— Founder memory system development</p>
+        <p style="margin:0 0 4px;font-size:12px">— Distribution content generation pipeline</p>
+        <p style="margin:0;font-size:12px">— Legal compliance data partnerships</p>
+      </div>
+    </div>
+    <div class="bmc-cell" style="grid-row:span 2">
+      <div class="bmc-head">Value propositions</div>
+      <div class="bmc-body">
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px">For solo & early founders</p>
+        <p style="margin:0 0 8px;font-size:12px;color:var(--color-text-secondary)">One system replaces a team of 5: market researcher, financial analyst, architect, developer, growth marketer. Builds the right thing, viably, with distribution from day one.</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px">For non-technical founders</p>
+        <p style="margin:0 0 8px;font-size:12px;color:var(--color-text-secondary)">Full technical execution without an engineering co-founder. AI handles architecture, compliance, and build — human retains strategic control.</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px">For accelerators</p>
+        <p style="margin:0 0 8px;font-size:12px;color:var(--color-text-secondary)">Standardized startup OS for entire cohorts. Increases portfolio company survival rate. Provides data visibility into where founders struggle.</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px">Unique to Builto</p>
+        <p style="margin:0;font-size:12px;color:var(--color-text-secondary)">Bi-directional intelligence, real-world validation, investor match, legal radar, team gap analysis, founder memory. No competitor offers more than 2 of these.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px">
+    <div class="bmc-cell">
+      <div class="bmc-head">Key resources</div>
+      <div class="bmc-body">
+        <p style="margin:0 0 4px;font-size:12px">— Multi-model AI orchestration stack</p>
+        <p style="margin:0 0 4px;font-size:12px">— Investor database (proprietary, curated)</p>
+        <p style="margin:0 0 4px;font-size:12px">— Founder memory system (encrypted, local-first)</p>
+        <p style="margin:0 0 4px;font-size:12px">— Real-world validation infrastructure</p>
+        <p style="margin:0 0 4px;font-size:12px">— Legal compliance knowledge base</p>
+        <p style="margin:0;font-size:12px">— Boilerplate & architecture library</p>
+      </div>
+    </div>
+    <div class="bmc-cell">
+      <div class="bmc-head">Customer relationships</div>
+      <div class="bmc-body">
+        <p style="margin:0 0 4px;font-size:12px">— Self-serve freemium onboarding (solo founders)</p>
+        <p style="margin:0 0 4px;font-size:12px">— Guided AI co-founder experience (Pro)</p>
+        <p style="margin:0 0 4px;font-size:12px">— Accelerator cohort onboarding (B2B)</p>
+        <p style="margin:0 0 4px;font-size:12px">— Community (founder stories, case studies)</p>
+        <p style="margin:0;font-size:12px">— Personalized memory deepens relationship over time — Builto becomes harder to leave as use increases</p>
+      </div>
+    </div>
+    <div class="bmc-cell">
+      <div class="bmc-head">Customer segments</div>
+      <div class="bmc-body">
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px">Primary</p>
+        <p style="margin:0 0 4px;font-size:12px">— Solo and 1–3 person founding teams (pre-seed)</p>
+        <p style="margin:0 0 8px;font-size:12px">— Non-technical founders attempting product companies</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px">Secondary</p>
+        <p style="margin:0 0 4px;font-size:12px">— Startup studios and venture builders</p>
+        <p style="margin:0 0 4px;font-size:12px">— Accelerators and incubators (institutional)</p>
+        <p style="margin:0;font-size:12px">— VC firms (portfolio support tool)</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px">
+    <div class="bmc-cell">
+      <div class="bmc-head">Channels</div>
+      <div class="bmc-body">
+        <p style="margin:0 0 4px;font-size:12px;font-weight:500">Acquisition</p>
+        <p style="margin:0 0 4px;font-size:12px">— Product Hunt launch</p>
+        <p style="margin:0 0 4px;font-size:12px">— Hacker News Show HN</p>
+        <p style="margin:0 0 4px;font-size:12px">— X / LinkedIn founder content</p>
+        <p style="margin:0 0 8px;font-size:12px">— Accelerator partnerships (cohort access)</p>
+        <p style="margin:0 0 4px;font-size:12px;font-weight:500">Retention</p>
+        <p style="margin:0 0 4px;font-size:12px">— In-product founder memory loop</p>
+        <p style="margin:0;font-size:12px">— Email milestone summaries</p>
+      </div>
+    </div>
+    <div class="bmc-cell" style="border:0.5px solid #1D9E75">
+      <div class="bmc-head" style="color:#0F6E56">Revenue streams</div>
+      <div class="bmc-body">
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px;color:#085041">Free tier</p>
+        <p style="margin:0 0 8px;font-size:12px;color:var(--color-text-secondary)">Stages 1–2, 1 project, limited runs. Demand capture and conversion funnel.</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px;color:#085041">Pro — $49/mo</p>
+        <p style="margin:0 0 8px;font-size:12px;color:var(--color-text-secondary)">All 11 stages. 5 active projects. Founder memory. Investor match. Legal radar. Team gap analyzer.</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px;color:#085041">Studio — $199/mo</p>
+        <p style="margin:0 0 8px;font-size:12px;color:var(--color-text-secondary)">Unlimited projects, API access, white-label for venture builders and studios.</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px;color:#085041">Accelerator license</p>
+        <p style="margin:0 0 8px;font-size:12px;color:var(--color-text-secondary)">$5K–$15K per cohort. Institutional access for batch companies with cohort-level analytics.</p>
+        <p style="margin:0 0 6px;font-weight:500;font-size:13px;color:#085041">Validation platform fee</p>
+        <p style="margin:0;font-size:12px;color:var(--color-text-secondary)">10% of founder-funded real-world validation spend (ads, landing pages). Scales with usage.</p>
+      </div>
+    </div>
+    <div class="bmc-cell">
+      <div class="bmc-head">Cost structure</div>
+      <div class="bmc-body">
+        <p style="margin:0 0 4px;font-size:12px;font-weight:500">Variable (scale with usage)</p>
+        <p style="margin:0 0 4px;font-size:12px">— LLM inference (multi-model routing manages this)</p>
+        <p style="margin:0 0 4px;font-size:12px">— OSINT and web search APIs</p>
+        <p style="margin:0 0 8px;font-size:12px">— Cloud infra (Supabase, Vercel, AWS)</p>
+        <p style="margin:0 0 4px;font-size:12px;font-weight:500">Fixed</p>
+        <p style="margin:0 0 4px;font-size:12px">— Engineering team (core product)</p>
+        <p style="margin:0 0 4px;font-size:12px">— Investor database maintenance</p>
+        <p style="margin:0 0 4px;font-size:12px">— Legal compliance data licensing</p>
+        <p style="margin:0;font-size:12px">— Sales & partnership (accelerator channel)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="background:var(--color-background-secondary)">
+    <div class="slim">North star metric</div>
+    <p style="font-size:13px;margin:0;line-height:1.6">Projects that progress from Stage 1 validation through to Stage 8 distribution — the "full-run rate." This is the metric that differentiates Builto from single-stage tools. Target: 30% of Pro users completing a full run within 60 days. Secondary: 90-day retention (memory deepening). Revenue follows engagement depth, not seat count.</p>
+  </div>
+</div>
+
+</div>
+
+<script>
+var btns = document.querySelectorAll('.tab-btn');
+var secs = document.querySelectorAll('[data-section]');
+secs.forEach(function(s,i){if(i>0)s.style.display='none';});
+btns.forEach(function(btn){
+  btn.addEventListener('click',function(){
+    secs.forEach(function(s){s.style.display='none';});
+    btns.forEach(function(b){b.classList.remove('active');});
+    var t=btn.getAttribute('data-target');
+    var el=document.querySelector('[data-section="'+t+'"]');
+    if(el)el.style.display='block';
+    btn.classList.add('active');
+  });
+});
+</script>
