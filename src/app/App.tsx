@@ -18,24 +18,74 @@ import {
   Brain,
   ArrowDown
 } from 'lucide-react';
+import { isSupabaseConfigured, supabase } from '../lib/supabase';
+
+type WaitlistFormData = {
+  name: string;
+  email: string;
+  company: string;
+  stage: string;
+  bottleneck: string;
+  plan: string;
+};
+
+const initialFormData: WaitlistFormData = {
+  name: '',
+  email: '',
+  company: '',
+  stage: '',
+  bottleneck: '',
+  plan: ''
+};
 
 export default function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    stage: '',
-    bottleneck: '',
-    plan: ''
-  });
+  const [formData, setFormData] = useState(initialFormData);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showThankYou, setShowThankYou] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setShowThankYou(true);
+    setSubmitError(null);
+
+    if (!isSupabaseConfigured || !supabase) {
+      setSubmitError('Supabase is not configured yet. Add your project URL and anon key in `.env` first.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const payload = {
+        name: formData.name.trim(),
+        email: formData.email.trim().toLowerCase(),
+        company: formData.company.trim() || null,
+        stage: formData.stage,
+        bottleneck: formData.bottleneck || null,
+        plan: formData.plan
+      };
+
+      const { error } = await supabase.from('waitlist_signups').insert(payload);
+
+      if (error) {
+        if (error.code === '23505') {
+          setSubmitError('That email is already on the waitlist.');
+        } else {
+          setSubmitError('We could not save your spot right now. Please try again in a minute.');
+        }
+        return;
+      }
+
+      setFormData(initialFormData);
+      setShowThankYou(true);
+    } catch {
+      setSubmitError('We could not save your spot right now. Please try again in a minute.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -798,14 +848,21 @@ export default function App() {
                 <option value="investors" className="bg-[#0A0A0A]">Finding the right investors</option>
               </select>
             </div>
+
+            {submitError && (
+              <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                {submitError}
+              </p>
+            )}
             
             <motion.button 
               type="submit"
-              className="w-full px-8 py-4 bg-[#F5A623] text-black rounded-xl font-medium hover:bg-[#E09515] transition-all flex items-center justify-center gap-2"
+              disabled={isSubmitting}
+              className="w-full px-8 py-4 bg-[#F5A623] text-black rounded-xl font-medium hover:bg-[#E09515] transition-all flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-70"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Claim my spot
+              {isSubmitting ? 'Saving your spot...' : 'Claim my spot'}
               <ArrowRight className="w-5 h-5" />
             </motion.button>
             
